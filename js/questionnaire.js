@@ -185,7 +185,6 @@ function addDateInput() {
 function validateDates() {
     const dateRanges = document.querySelectorAll('.date-range-wrapper');
     const filledRanges = [];
-    let hasError = false;
     
     // Get current month info if "this-month" is selected
     const isThisMonth = formData.travelTime === 'This month';
@@ -199,7 +198,7 @@ function validateDates() {
         const startInput = wrapper.querySelector('.date-start');
         const endInput = wrapper.querySelector('.date-end');
         
-        // Set min/max attributes if "this month" is selected
+        // Set min/max attributes to restrict date selection
         if (isThisMonth) {
             startInput.setAttribute('min', firstDayOfMonth);
             startInput.setAttribute('max', lastDayOfMonth);
@@ -212,25 +211,16 @@ function validateDates() {
             endInput.removeAttribute('max');
         }
         
-        // Reset error styling
-        startInput.style.borderColor = '';
-        endInput.style.borderColor = '';
+        // Set end date min to start date value to prevent selecting end before start
+        if (startInput.value) {
+            endInput.setAttribute('min', startInput.value);
+        }
         
         if (startInput.value && endInput.value) {
-            const startDate = new Date(startInput.value);
-            const endDate = new Date(endInput.value);
-            
-            // Validate end date is not before start date
-            if (endDate < startDate) {
-                endInput.style.borderColor = '#dc2626';
-                endInput.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.1)';
-                hasError = true;
-            } else {
-                filledRanges.push({
-                    start: startInput.value,
-                    end: endInput.value
-                });
-            }
+            filledRanges.push({
+                start: startInput.value,
+                end: endInput.value
+            });
         }
     });
     
@@ -240,13 +230,13 @@ function validateDates() {
     dateCountNum.textContent = `${filledRanges.length} / 3`;
     
     const dateCount = document.getElementById('date-count');
-    if (filledRanges.length >= 3 && !hasError) {
+    if (filledRanges.length >= 3) {
         dateCount.style.color = '#4CAF50';
     } else {
         dateCount.style.color = '#888888';
     }
     
-    document.getElementById('next-4').disabled = filledRanges.length < 3 || hasError;
+    document.getElementById('next-4').disabled = filledRanges.length < 3;
 }
 
 // ==========================================
