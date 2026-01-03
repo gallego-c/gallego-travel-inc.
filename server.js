@@ -106,10 +106,27 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log('🚀 Gallego Travel Inc. Server Started!');
-    console.log(`📍 Server running at: http://localhost:${PORT}`);
+    console.log(`📍 Local: http://localhost:${PORT}`);
+    console.log(`📍 Network: http://${getLocalIP()}:${PORT}`);
     console.log(`📊 CSV file location: ${csvFilePath}`);
     console.log('');
     console.log('To stop the server, press Ctrl+C');
 });
+
+// Helper function to get local IP address
+function getLocalIP() {
+    const { networkInterfaces } = require('os');
+    const nets = networkInterfaces();
+    
+    for (const name of Object.keys(nets)) {
+        for (const net of nets[name]) {
+            // Skip internal and non-IPv4 addresses
+            if (net.family === 'IPv4' && !net.internal) {
+                return net.address;
+            }
+        }
+    }
+    return 'localhost';
+}

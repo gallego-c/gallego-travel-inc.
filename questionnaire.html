@@ -8,11 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <button class="btn-lang" id="lang-btn" onclick="switchLanguage()">Español</button>
-    </div>
-
     <div class="questionnaire-container">
         <!-- Progress Bar -->
         <div class="progress-bar">
@@ -75,7 +70,7 @@
         <!-- Step 4: Available Date Ranges -->
         <div class="question-slide" data-step="4">
             <div class="question-content">
-                <h2 data-i18n="step4Question">Introduce at least 5 available date ranges</h2>
+                <h2 data-i18n="step4Question">Introduce at least 3 available date ranges</h2>
                 <p class="hint-text" data-i18n="step4Hint">Add date ranges when you're available to travel</p>
                 <div class="dates-container" id="dates-container">
                     <div class="date-range-wrapper">
@@ -102,15 +97,9 @@
                         <label data-i18n="step4EndDate">End Date</label>
                         <input type="date" class="date-input date-end" oninput="validateDates()">
                     </div>
-                    <div class="date-range-wrapper">
-                        <label data-i18n="step4StartDate">Start Date</label>
-                        <input type="date" class="date-input date-start" oninput="validateDates()">
-                        <label data-i18n="step4EndDate">End Date</label>
-                        <input type="date" class="date-input date-end" oninput="validateDates()">
-                    </div>
                 </div>
                 <button class="btn btn-add" onclick="addDateInput()" data-i18n="step4AddButton">+ Add more date ranges</button>
-                <p class="date-count" id="date-count"><span id="date-count-num">0 / 5</span> <span data-i18n="step4Count">date ranges selected</span></p>
+                <p class="date-count" id="date-count"><span id="date-count-num">0 / 3</span> <span data-i18n="step4Count">date ranges selected</span></p>
             </div>
             <div class="nav-buttons">
                 <button class="btn btn-secondary" onclick="prevStep()" data-i18n="btnPrevious">Previous</button>

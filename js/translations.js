@@ -56,7 +56,7 @@ const translations = {
         step3Option2Sub: "(I am a control freak that needs months of preparation)",
         
         // Step 4
-        step4Question: "Introduce at least 5 available date ranges",
+        step4Question: "Introduce at least 3 available date ranges",
         step4Hint: "Add date ranges when you're available to travel",
         step4AddButton: "+ Add more date ranges",
         step4Count: "date ranges selected",
@@ -169,7 +169,7 @@ const translations = {
         step3Option2Sub: "(Soy un maniático del control que necesita meses de preparación)",
         
         // Step 4
-        step4Question: "Introduce al menos 5 rangos de fechas disponibles",
+        step4Question: "Introduce al menos 3 rangos de fechas disponibles",
         step4Hint: "Añade rangos de fechas cuando estés disponible para viajar",
         step4AddButton: "+ Añadir más rangos",
         step4Count: "rangos de fechas seleccionados",

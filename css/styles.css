@@ -615,6 +615,10 @@ p {
     border: 3px solid #4CAF50;
 }
 
+.city-card.selected .city-status {
+    background: #4CAF50;
+}
+
 .city-card:not(.selected) {
     border: 3px solid transparent;
     opacity: 0.6;
@@ -627,18 +631,6 @@ p {
 .city-card:not(.selected) .city-status {
     background: #e0e0e0;
     color: #888888;
-}
-
-.city-card:not(.selected) .city-status::before {
-    content: '✗';
-}
-
-.city-card:not(.selected) .city-status::after {
-    content: none;
-}
-
-.city-card.selected .city-status::before {
-    content: '✓';
 }
 
 .city-card:hover {

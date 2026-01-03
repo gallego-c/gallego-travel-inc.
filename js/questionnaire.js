@@ -185,31 +185,68 @@ function addDateInput() {
 function validateDates() {
     const dateRanges = document.querySelectorAll('.date-range-wrapper');
     const filledRanges = [];
+    let hasError = false;
+    
+    // Get current month info if "this-month" is selected
+    const isThisMonth = formData.travelTime === 'This month';
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).toISOString().split('T')[0];
+    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).toISOString().split('T')[0];
     
     dateRanges.forEach(wrapper => {
         const startInput = wrapper.querySelector('.date-start');
         const endInput = wrapper.querySelector('.date-end');
+        
+        // Set min/max attributes if "this month" is selected
+        if (isThisMonth) {
+            startInput.setAttribute('min', firstDayOfMonth);
+            startInput.setAttribute('max', lastDayOfMonth);
+            endInput.setAttribute('min', firstDayOfMonth);
+            endInput.setAttribute('max', lastDayOfMonth);
+        } else {
+            startInput.removeAttribute('min');
+            startInput.removeAttribute('max');
+            endInput.removeAttribute('min');
+            endInput.removeAttribute('max');
+        }
+        
+        // Reset error styling
+        startInput.style.borderColor = '';
+        endInput.style.borderColor = '';
+        
         if (startInput.value && endInput.value) {
-            filledRanges.push({
-                start: startInput.value,
-                end: endInput.value
-            });
+            const startDate = new Date(startInput.value);
+            const endDate = new Date(endInput.value);
+            
+            // Validate end date is not before start date
+            if (endDate < startDate) {
+                endInput.style.borderColor = '#dc2626';
+                endInput.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.1)';
+                hasError = true;
+            } else {
+                filledRanges.push({
+                    start: startInput.value,
+                    end: endInput.value
+                });
+            }
         }
     });
     
     formData.availableDates = filledRanges;
     
     const dateCountNum = document.getElementById('date-count-num');
-    dateCountNum.textContent = `${filledRanges.length} / 5`;
+    dateCountNum.textContent = `${filledRanges.length} / 3`;
     
     const dateCount = document.getElementById('date-count');
-    if (filledRanges.length >= 5) {
+    if (filledRanges.length >= 3 && !hasError) {
         dateCount.style.color = '#4CAF50';
     } else {
         dateCount.style.color = '#888888';
     }
     
-    document.getElementById('next-4').disabled = filledRanges.length < 5;
+    document.getElementById('next-4').disabled = filledRanges.length < 3 || hasError;
 }
 
 // ==========================================
@@ -275,21 +312,16 @@ function selectContinent(value) {
 
 function toggleCity(card) {
     const city = card.dataset.city;
+    const status = card.querySelector('.city-status');
     
     if (card.classList.contains('selected')) {
         card.classList.remove('selected');
         formData.selectedCities = formData.selectedCities.filter(c => c !== city);
+        status.textContent = '✗';
     } else {
         card.classList.add('selected');
         formData.selectedCities.push(city);
-    }
-    
-    // Update status icon
-    const status = card.querySelector('.city-status');
-    if (card.classList.contains('selected')) {
         status.textContent = '✓';
-    } else {
-        status.textContent = '✗';
     }
 }
 
@@ -345,7 +377,7 @@ async function saveToServer() {
         finishBtn.disabled = true;
         
         // Send data to server
-        const response = await fetch('http://localhost:3000/api/save-response', {
+        const response = await fetch('/api/save-response', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
