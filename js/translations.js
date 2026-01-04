@@ -21,12 +21,12 @@ const translations = {
         
         // About Section
         aboutTitle: "Meet Our Team",
-        founderName: "Gerard Gallego",
+        founderName: "Gerard Parés Gallego",
         founderRole: "Founder & CEO",
-        founderDesc: "The visionary mastermind behind Gallego Travel Inc. Gerard founded this company after realizing that making travel decisions is overrated. When he's not revolutionizing the travel industry, he can be found convincing people that Barcelona is the center of the universe. His motto: \"Why plan when you can be surprised?\"",
-        cooName: "Alex Martinez",
+        founderDesc: "The impulse behind Gallego Travel Inc., Gerard started the company for one simple reason: he wanted to travel and burn money—and figured other people would happily do the same. If there’s a flight to catch and a budget to ignore, he’s already packed. His motto: \"Why save when you can book?\"",
+        cooName: "Claudia Gallego Torralbo",
         cooRole: "COO & CFO",
-        cooDesc: "The person who actually makes sure things work around here. Alex handles operations and finances, which mostly means telling Gerard that no, we cannot offer free trips to everyone. With a background in \"keeping things from falling apart,\" Alex ensures that your surprise destinations are at least somewhat within budget. Probably.",
+        cooDesc: "The person who actually makes sure things work around here—when she’s not in the middle of saving her degree during exam season. Claudia runs operations and finances, which mostly means telling Gerard that no, €200 is not “basically free,” and yes, numbers still matter. She keeps the chaos organized and your “surprise” trip exciting—without pretending your wallet won’t notice. Usually.",
         
         // Footer
         footerCopyright: "All rights reserved.",
@@ -41,7 +41,7 @@ const translations = {
         step1Option2: "Some random person",
         
         // Step 2
-        step2TitleGerard: "Welcome back, Gerard! Confirm your email",
+        step2TitleGerard: "Welcome, Gerard! Confirm your email",
         step2TitleRandom: "Tell us about yourself",
         step2Name: "Name",
         step2Email: "Email",
@@ -73,7 +73,7 @@ const translations = {
         // Step 6
         step6Question: "Introduce your city",
         step6Placeholder: "Enter your city",
-        step6Message1: "🎉 Barcelona is the best city and the page has decided to ignore your preference. 🎉",
+        step6Message1: "Barcelona is the best city and the page has decided to ignore your preference. ",
         step6Message2: "You're departing from Barcelona now. You're welcome.",
         
         // Step 7
@@ -95,8 +95,8 @@ const translations = {
         step9Question: "How many travelers?",
         step9Option1: "1-2",
         step9Option2: "2 or more",
-        step9Warning1: "⚠️ Take into account Gallego Travel Inc does not cover this option and you will be redirected ⚠️",
-        step9Warning2: "(Just kidding, we'll continue anyway)",
+        step9Warning1: "Take into account Gallego Travel Inc does not cover this option and you will be redirected",
+        step9Warning2: "Or ignored",
         
         // Step 10
         step10Question: "Select your adventure type",
@@ -134,12 +134,12 @@ const translations = {
         
         // About Section
         aboutTitle: "Conoce a Nuestro Equipo",
-        founderName: "Gerard Gallego",
+        founderName: "Gerard Parés Gallego",
         founderRole: "Fundador y CEO",
         founderDesc: "La mente visionaria detrás de Gallego Travel Inc. Gerard fundó esta empresa después de darse cuenta de que tomar decisiones de viaje está sobrevalorado. Cuando no está revolucionando la industria de viajes, se le puede encontrar convenciendo a la gente de que Barcelona es el centro del universo. Su lema: \"¿Por qué planificar cuando puedes ser sorprendido?\"",
-        cooName: "Alex Martinez",
+        cooName: "Claudia Gallego Torralbo",
         cooRole: "COO y CFO",
-        cooDesc: "La persona que realmente asegura que las cosas funcionen por aquí. Alex maneja operaciones y finanzas, lo que básicamente significa decirle a Gerard que no, no podemos ofrecer viajes gratis a todos. Con experiencia en \"evitar que las cosas se desmoronen\", Alex asegura que tus destinos sorpresa estén al menos algo dentro del presupuesto. Probablemente.",
+        cooDesc: "La persona que realmente asegura que las cosas funcionen por aquí. Claudia maneja operaciones y finanzas, lo que básicamente significa decirle a Gerard que no, no podemos ofrecer viajes gratis a todos. Con experiencia en \"evitar que las cosas se desmoronen\", Claudia asegura que tus destinos sorpresa estén al menos algo dentro del presupuesto. Probablemente.",
         
         // Footer
         footerCopyright: "Todos los derechos reservados.",
@@ -186,7 +186,7 @@ const translations = {
         // Step 6
         step6Question: "Introduce tu ciudad",
         step6Placeholder: "Introduce tu ciudad",
-        step6Message1: "🎉 Barcelona es la mejor ciudad y la página ha decidido ignorar tu preferencia. 🎉",
+        step6Message1: "Barcelona es la mejor ciudad y la página ha decidido ignorar tu preferencia.",
         step6Message2: "Ahora sales desde Barcelona. De nada.",
         
         // Step 7
@@ -208,8 +208,8 @@ const translations = {
         step9Question: "¿Cuántos viajeros?",
         step9Option1: "1-2",
         step9Option2: "2 o más",
-        step9Warning1: "⚠️ Ten en cuenta que Gallego Travel Inc no cubre esta opción y serás redirigido ⚠️",
-        step9Warning2: "(Es broma, continuaremos de todas formas)",
+        step9Warning1: "Ten en cuenta que Gallego Travel Inc no cubre esta opción y serás redirigido",
+        step9Warning2: "(Es broma, pero ignoraremos tu elección)",
         
         // Step 10
         step10Question: "Selecciona tu tipo de aventura",
